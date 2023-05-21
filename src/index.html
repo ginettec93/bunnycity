@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Foldit&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            counter-reset: rabbit;
+        }
+        .phone {
+            position: relative;
+            border: 8px solid black;
+            border-radius: 40px;
+            height: 600px;
+            width: 300px;
+            background-color: #3364b7;
+            background-image: linear-gradient(180deg, #3364b7 0%, #FFBBEC 100%);
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 18px rgba(0, 0, 0, 0.22);            
+        }
+        .title {
+            display: flex;
+            justify-content: center;
+            color: palevioletred;
+        }        
+        .total-count {
+            display: flex;
+            justify-content: center;
+            color: palevioletred;
+            margin: 0;
+        }
+        input[type=checkbox] {
+            position: absolute;
+            appearance: none;
+            top: 0;
+            height: 50px;
+            width: 50px;
+            cursor: pointer; 
+        }
+        input[type=checkbox]:focus {
+            appearance: none;
+            outline: none;
+        }
+        input[type=checkbox]:checked {
+            counter-increment: rabbit;
+        }
+        .total-count::after {
+            content: counter(rabbit);
+        }        
+        .layer-1 {
+            position: absolute;
+            height: 450px;
+            width: 80px;
+            bottom: 0;
+            right: 60px;
+            animation-name: layer;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        @keyframes layer {
+            0% {
+                bottom: 0;
+            }
+            25% {
+                bottom: -50px;
+            }
+            100% {
+                bottom: 0;
+            }
+        }          
+        .layer-2 {
+            position: absolute;
+            z-index: 2;
+            height: 450px;
+            width: 80px;
+            bottom: 0;
+            left: 60px;
+            animation-name: layer;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-3 {
+            position: absolute;
+            z-index: 3;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0 auto;
+            height: 400px;
+            width: 220px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #7BD95F 25%, #B87336 25%) -80px 0,
+            linear-gradient(-135deg, #7BD95F 25%, #B87336 25%) -80px 0,
+            linear-gradient(45deg, #7BD95F 25%, #B87336 25%),
+            linear-gradient(-45deg, #7BD95F 25%, #B87336 25%);
+            background-size: 15px 200px;
+            box-shadow: 10px 19px 38px rgba(0, 0, 0, 0.30), 0 15px 18px rgba(0, 0, 0, 0.22);
+        }
+        .layer-4 {
+            position: absolute;
+            z-index: 4;
+            height: 360px;
+            width: 80px;
+            bottom: 0;
+            left: 75px;
+            animation-name: layer;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-5 {
+            position: absolute;
+            z-index: 5;
+            bottom: 0;
+            margin: 30px;
+            height: 280px;
+            width: 185px;
+            background: linear-gradient(135deg, #7BD95F 25%, #B87336 25%) -80px 0,
+            linear-gradient(-135deg, #7BD95F 25%, #B87336 25%) -80px 0,
+            linear-gradient(45deg, #7BD95F 25%, #B87336 25%),
+            linear-gradient(-45deg, #7BD95F 25%, #B87336 25%);
+            background-size: 15px 230px;
+            border-radius: 8px;
+            box-shadow: 10px 19px 38px rgba(0, 0, 0, 0.30), 0 15px 18px rgba(0, 0, 0, 0.22);
+        }
+        .layer-6 {
+            position: absolute;
+            z-index: 6;
+            height: 260px;
+            width: 80px;
+            bottom: 0;
+            right: 70px;
+            animation-name: layer;
+            animation-duration: 0.8s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-7 {
+            position: absolute;
+            z-index: 7;
+            left: 95px;
+            right: 10;
+            bottom: 0;
+            margin: 0 auto;
+            height: 210px;
+            width: 190px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #7BD95F 25%, #B87336 25%) -80px 0,
+            linear-gradient(-135deg, #7BD95F 25%, #B87336 25%) -80px 0,
+            linear-gradient(45deg, #7BD95F 25%, #B87336 25%),
+            linear-gradient(-45deg, #7BD95F 25%, #B87336 25%);
+            background-size: 15px 200px;
+            box-shadow: 10px 19px 38px rgba(0, 0, 0, 0.30), 0 15px 18px rgba(0, 0, 0, 0.22);
+        }
+        .layer-8 {
+            position: absolute;
+            z-index: 8;
+            left: 0;
+            right: 0;
+            bottom: 4px;
+            margin: 0 auto;
+            height: 110px;
+            width: 110px;
+            background: #50a531;
+            border-radius: 50%;
+            box-shadow: 10px 19px 38px rgba(0, 0, 0, 0.30), 0 15px 18px rgba(0, 0, 0, 0.22);
+        }
+        .layer-8-left {
+            position: absolute;
+            z-index: 9;
+            left: 70px;
+            right: 0;
+            bottom: 3px;
+            height: 85px;
+            width: 85px;
+            background: #50a531;
+            border-radius: 50%;
+        }
+        .layer-8-right {
+            position: absolute;
+            z-index: 10;
+            right: 70px;
+            bottom: 3px;
+            height: 85px;
+            width: 85px;
+            background: #50a531;
+            border-radius: 50%;
+        }
+        .layer-9 {
+            position: absolute;
+            z-index: 11;
+            height: 60px;
+            width: 135px;
+            background: lightcyan;
+            bottom: 0;
+            right: 0px;
+            border-radius: 30px;
+            box-shadow: 10px 19px 38px rgba(0, 0, 0, 0.30), 0 15px 18px rgba(0, 0, 0, 0.22);
+        }
+        .layer-9-1 {
+            position: absolute;
+            z-index: 12;
+            background: lightcyan;
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            right: 5px;
+            bottom: 4px;
+        }
+        .layer-10 {
+            position: absolute;
+            z-index: 13;
+            height: 60px;
+            width: 135px;
+            background: lightcyan;
+            bottom: 0;
+            left: 0px;
+            border-radius: 30px;
+            box-shadow: 10px 19px 38px rgba(0, 0, 0, 0.30), 0 15px 18px rgba(0, 0, 0, 0.22);
+        }
+        .layer-10-1 {
+            position: absolute;
+            z-index: 14;
+            background: lightcyan;
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            left: 5px;
+            bottom: 4px;
+        }
+        .left-ear--outer {
+            background: #CACFD2;
+            border-radius: 90%;
+            width: 20px;
+            height: 50px;
+            position: absolute;
+            left: 10px;
+        }
+        .left-ear--inner {
+            background: #FADBD8;
+            border-radius: 90%;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            left: 15px;
+            top: 7px;
+        }
+        .right-ear--outer {
+            background: #CACFD2;
+            border-radius: 90%;
+            width: 20px;
+            height: 50px;
+            position: absolute;
+            right: 10px;
+        }
+        .right-ear--inner {
+            background: #FADBD8;
+            border-radius: 90%;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            right: 15px;
+            top: 7px;
+        }
+        .head {
+            background: #CACFD2;
+            border-radius: 50%;
+            width: 100%;
+            height: 80px;
+            left: 0;
+            right: 0;
+            margin: 0auto;
+            position: absolute;
+            top: 30px;
+        }
+        .head-eye {
+            background: gray;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            position: absolute;
+            top: 13px;
+            animation-name: blink;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                transform: translate(0px, 0px);
+                height: 5px;
+            }
+            5% {
+                transform: translate(0px, 2.5px);
+                height: 1px;
+            }
+            10% {
+                transform: translate(0px, 0px);
+                height: 5px;
+            }
+        }       
+        .head-eye-left {
+            left: 25px;
+        }
+        .head-eye-right {
+            right: 25px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="phone">
+
+        <h1 class="title">Bunnycity</h1>
+        
+        <div class="layer-1">
+            
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head-eye head-eye-left"></div>
+                <div class="head-eye head-eye-right"></div>
+            </div>
+            <input type="checkbox">
+        </div>
+        <div class="layer-2">
+            
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head-eye head-eye-left"></div>
+                <div class="head-eye head-eye-right"></div>
+            </div>
+            <input type="checkbox">
+        </div>
+        <div class="layer-3"></div>
+        <div class="layer-4">
+            
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head-eye head-eye-left"></div>
+                <div class="head-eye head-eye-right"></div>
+            </div>
+            <input type="checkbox">
+        </div>
+        <div class="layer-5"></div>
+        <div class="layer-6">
+            
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head-eye head-eye-left"></div>
+                <div class="head-eye head-eye-right"></div>
+            </div>
+            <input type="checkbox">
+        </div>
+        <div class="layer-7"></div>
+        <div class="layer-8">
+            <div class="layer-8-left"></div>
+            <div class="layer-8-right"></div>
+        </div>
+        <div class="layer-9">
+            <div class="layer-9-1"></div>
+        </div>
+        <div class="layer-10">
+            <div class="layer-10-1"></div>
+        </div>
+
+        <h2 class="total-count">Score: </h2>
+    </div>     
+</body>
+</html>
